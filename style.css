@@ -1,0 +1,282 @@
+:root {
+  --color-primary: #1f7a8c;
+  --color-primary-dark: #17606f;
+  --color-primary-soft: #e6f2f4;
+  --color-bg: #f1f3f5;
+  --color-card: #ffffff;
+  --color-bubble-ai: #f1f3f5;
+  --color-text: #1c2427;
+  --color-muted: #5a666b;
+  --color-border: #dde2e5;
+  --color-error: #8f2f22;
+  --color-error-bg: #fbeeec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+button,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Okno czatu: pełna wysokość na telefonie ===== */
+
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 720px;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0 auto;
+  background: var(--color-card);
+}
+
+/* ===== Nagłówek ===== */
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.chat-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  min-width: 0;
+}
+
+.chat-title h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.demo-badge {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.reset-btn {
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-card);
+  color: var(--color-muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.reset-btn:hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ===== Wiadomości ===== */
+
+.chat {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 12px;
+}
+
+.chat:focus-visible {
+  outline-offset: -2px;
+}
+
+.bubble {
+  flex-shrink: 0;
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: var(--color-primary);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+}
+
+.bubble.ai {
+  align-self: flex-start;
+  background: var(--color-bubble-ai);
+  border-bottom-left-radius: 4px;
+}
+
+.bubble.ai.error {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.bubble.ai.typing {
+  color: var(--color-muted);
+  font-style: italic;
+  animation: typing-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes typing-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble.ai.typing {
+    animation: none;
+  }
+}
+
+/* ===== Szybkie pytania ===== */
+
+.quick-questions {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-questions button {
+  min-height: 40px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-primary);
+  border-radius: 999px;
+  background: var(--color-card);
+  color: var(--color-primary-dark);
+  font-size: 14px;
+}
+
+.quick-questions button:hover {
+  background: var(--color-primary-soft);
+}
+
+/* ===== Pole wpisywania i adnotacja ===== */
+
+.chat-footer {
+  padding: 10px 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.composer textarea {
+  flex: 1;
+  min-width: 0;
+  max-height: 124px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-card);
+  color: var(--color-text);
+  /* 16 px: iOS nie przybliża wtedy strony po kliknięciu w pole. */
+  font-size: 16px;
+  line-height: 1.4;
+  resize: none;
+}
+
+.composer textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.composer textarea:disabled {
+  background: var(--color-bg);
+  color: var(--color-muted);
+}
+
+.composer button {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.composer button:hover {
+  background: var(--color-primary-dark);
+}
+
+.composer button:disabled {
+  background: var(--color-border);
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.notice {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* ===== Większe ekrany: okno z marginesem na jasnoszarym tle ===== */
+
+@media (min-width: 760px) {
+  .chat-window {
+    height: calc(100vh - 48px);
+    height: calc(100dvh - 48px);
+    margin: 24px auto;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .chat-header,
+  .chat-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .chat {
+    padding: 20px 16px;
+  }
+}

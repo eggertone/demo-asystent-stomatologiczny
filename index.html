@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Asystent informacyjny (demo)</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="chat-window">
+    <header class="chat-header">
+      <div class="chat-title">
+        <h1>Asystent informacyjny</h1>
+        <span class="demo-badge">DEMO</span>
+      </div>
+      <button id="resetBtn" class="reset-btn" type="button">Zacznij od nowa</button>
+    </header>
+
+    <div id="chat" class="chat" role="log" aria-label="Rozmowa z asystentem" tabindex="0"></div>
+
+    <footer class="chat-footer">
+      <form id="composer" class="composer">
+        <textarea
+          id="messageInput"
+          rows="1"
+          placeholder="Napisz wiadomość..."
+          aria-label="Twoja wiadomość"
+          autocomplete="off"
+        ></textarea>
+        <button id="sendBtn" type="submit">Wyślij</button>
+      </form>
+      <p class="notice">Wersja demonstracyjna zbudowana na publicznych informacjach ze strony kliniki. Rozmowy mogą być zapisywane w celu oceny działania demo i nie trafiają do kliniki. Prosimy nie podawać prawdziwych danych osobowych ani zdrowotnych. W teście umawiania wizyty użyj danych fikcyjnych.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
