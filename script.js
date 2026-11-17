@@ -1,8 +1,8 @@
 // ======= JEDYNE MIEJSCE DO EDYCJI =======
 // Wklej tu Production URL webhooka z n8n, zanim opublikujesz stronę na GitHub Pages.
-const WEBHOOK_URL = "WKLEJ_TUTAJ_URL_WEBHOOKA";
+const WEBHOOK_URL = "https://amy145-20145.mikrus.cloud/webhook/dalw3ghmzbs59tk8p6cvo70e";
 // Musi być identyczny jak wartość pola "secret" sprawdzana po stronie n8n.
-const SEKRET = "WKLEJ_TUTAJ_SEKRET";
+const SEKRET = "syvtjq92gd3mr7bi4xfhc0uz";
 // =========================================
 
 const TIMEOUT_MS = 60000;
